@@ -23,7 +23,7 @@ function App() {
 
                         <Navbar.Brand>
                             <Link to={"/user-list"} className="nav-link">
-                                Project Tarcking
+                                Project Tarck
                             </Link>
                         </Navbar.Brand>
 
