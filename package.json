@@ -12,6 +12,8 @@
   "author": "CodeMix",
   "license": "ISC",
   "dependencies": {
+    "@types/react-dom": "^16.9.6",
+    "@types/react-router-dom": "^5.1.4",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^5.1.2",
