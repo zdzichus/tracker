@@ -17,6 +17,7 @@ function App() {
     return (<Router>
         <div className="container">
             <header >
+                <title>Application</title>
 
                 <Navbar bg="dark" variant="dark">
                     <Container>
