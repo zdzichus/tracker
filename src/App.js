@@ -23,7 +23,7 @@ function App() {
 
                         <Navbar.Brand>
                             <Link to={"/user-list"} className="nav-link">
-                                Project Tarck
+                                Project Tarcking
                             </Link>
                         </Navbar.Brand>
 
@@ -63,3 +63,5 @@ function App() {
         </div>
     </Router>);
 }
+
+export default App;
