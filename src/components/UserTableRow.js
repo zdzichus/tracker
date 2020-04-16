@@ -28,10 +28,10 @@ export default class UserTableRow extends Component {
     render() {
         return (
             <tr>
-                <td>{this.props.obj.user_name}</td>
                 <td>{this.props.obj.email}</td>
                 <td>{this.props.obj.user_password}</td>
-                <td>{this.props.obj.user_surname}</td>
+                <td>{this.props.obj.user_name}</td>
+                <td>{this.props.obj.user_surname}</td> 
                 <td>{this.props.obj.user_app_role}</td>
                 <td>{this.props.obj.user_role}</td>
                

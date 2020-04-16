@@ -99,23 +99,24 @@ export default class CreateUser extends Component {
     render() {
         return (<div className="form-wrapper">
             <Form onSubmit={this.onSubmit}>
-                <Form.Group controlId="Name">
-                    <Form.Label>Name</Form.Label>
-                    <Form.Control type="text" value={this.state.user_name} onChange={this.onChangeUserName} />
-                </Form.Group>
-
-                <Form.Group controlId="Email">
+                 <Form.Group controlId="Email">
                     <Form.Label>Email</Form.Label>
                     <Form.Control type="email" value={this.state.email} onChange={this.onChangeUserEmail} />
-                </Form.Group>
-                <Form.Group controlId="Surname">
-                    <Form.Label>Surname</Form.Label>
-                    <Form.Control type="text" value={this.state.user_surname} onChange={this.onChangeUserSurname} />
                 </Form.Group>
                 <Form.Group controlId="Password">
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="pass" value={this.state.user_password} onChange={this.onChangeUserPassword} />
                 </Form.Group>
+                <Form.Group controlId="Name">
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control type="text" value={this.state.user_name} onChange={this.onChangeUserName} />
+                </Form.Group>
+
+                <Form.Group controlId="Surname">
+                    <Form.Label>Surname</Form.Label>
+                    <Form.Control type="text" value={this.state.user_surname} onChange={this.onChangeUserSurname} />
+                </Form.Group>
+                
                 <Form.Group controlId="AppRole">
                     <Form.Label>User Application Role</Form.Label>
                     <Form.Control type="text" value={this.state.user_app_role} onChange={this.onChangeUserAppRole} />
