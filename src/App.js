@@ -13,10 +13,9 @@ import CreateUser from "./components/create-user.component";
 import EditUser from "./components/edit-user.component";
 import UserList from "./components/user-list.component";
 
-
 function App() {
     return (<Router>
-        <div class="container">
+        <div className="container">
             <header >
 
                 <Navbar bg="dark" variant="dark">
@@ -64,5 +63,3 @@ function App() {
         </div>
     </Router>);
 }
-
-export default App;
