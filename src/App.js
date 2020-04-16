@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "jquery/dist/bootstrap.min.css";
+//import "jquery/dist/bootstrap.min.css";
 //import "proper.js/dist/umd/popper.min.js";
 //import "bootstrap/dist/js/bootstrap.min.js";
 import "./App.css";

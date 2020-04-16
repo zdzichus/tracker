@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import "bootstrap/dist/css/bootstrap.css";
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 
@@ -23,6 +24,7 @@ export default class UserTableRow extends Component {
         window.location.reload()
     }
 
+
     render() {
         return (
             <tr>
@@ -32,12 +34,14 @@ export default class UserTableRow extends Component {
                 <td>{this.props.obj.user_surname}</td>
                 <td>{this.props.obj.user_app_role}</td>
                 <td>{this.props.obj.user_role}</td>
-                <td>{this.props.obj.user_inactive}</td>
+               
 
-                <td>
-                    <Link className="edit-link" to={"/edit-user/" + this.props.obj._id}>
-                        Edit
-                    </Link>
+                <td>  
+                                   
+                     <Link className="edit-link" to={"/edit-user/" + this.props.obj._id}>
+                        Edit     
+                    </Link>&nbsp;&nbsp;  
+                    
                     <Button onClick={this.deleteUser} size="sm" variant="danger">Delete</Button>
                 </td>
             </tr>
