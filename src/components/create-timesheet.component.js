@@ -1,3 +1,4 @@
+import "bootswatch/dist/[yeti]/bootstrap.min.css"; 
 import React, { Component } from "react";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button';
@@ -81,7 +82,7 @@ export default class CreateTimeSheet extends Component {
 				<div class="col-lg-2">
 					 <div class="bs-component">
 						<Form.Group controlId="Monday">
-                    	<Form.Label>Monday</Form.Label><p>Date/Time: <span id="datetime" value ={this.newday}></span></p>
+                    	<Form.Label>Monday</Form.Label><p>Date/Time: <span id="datetime" ></span></p>
                     	<Form.Control placeholder= "vacation" type="figure" value={this.state.timesheet_vacation} onChange={this.onChangeTimeSheetVacation} />
 						<Form.Control placeholder= "sickness" type="figure" value={this.state.timesheet_sick_day} onChange={this.onChangeTimeSheetSickDay} />
 						<Form.Control placeholder= "project work" type="figure" value={this.state.timesheet_project_work} onChange={this.onChangeTimeSheetProjectWork} />
