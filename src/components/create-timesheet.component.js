@@ -12,14 +12,16 @@ export default class CreateTimeSheet extends Component {
         this.onChangeTimeSheetVacation = this.onChangeTimeSheetVacation.bind(this);
         this.onChangeTimeSheetSickDay = this.onChangeTimeSheetSickDay.bind(this);
         this.onChangeTimeSheetProjectWork = this.onChangeTimeSheetProjectWork.bind(this);
-      
+		this.onChangeTimeSheeDate = this.onChangeTimeSheetDate.bind(this);
+		
         this.onSubmit = this.onSubmit.bind(this);
 
         // Setting up state
         this.state = {
             timesheet_vacation: '',
             timesheet_sick_day: '',
-            timesheet_project_work: '',
+			timesheet_project_work: '',
+			 timesheet_date: '',
             }
     }
 
@@ -39,8 +41,14 @@ export default class CreateTimeSheet extends Component {
         this.setState({
             timesheet_project_work: e.target.value
         })
+	}
+	    onChangeTimeSheetDate(e) {
+        this.setState({
+            timesheet_date: e.target.value
+        })
     }
-
+	
+	
 
     onSubmit(e) {
         e.preventDefault()
@@ -48,17 +56,23 @@ export default class CreateTimeSheet extends Component {
         const UserObject = {
             timesheet_vacation: this.state.timesheet_vacation,
             timesheet_sick_day: this.state.timesheet_sick_day,
-            timesheet_project_work: this.state.timesheet_project_work,
+            timesheet_date: this.timesheet_date,
            
         };
         axios.post('http://192.168.0.46:4000/timesheets/create-timesheet', UserObject)
             .then(res => console.log(res.data));
 
-        this.setState({ timesheet_vacation: '', timesheet_sick_day: '', timesheet_project_work: '' })
+        this.setState({ timesheet_vacation: '', timesheet_sick_day: '', timesheet_project_work: '', timesheet_date: ''  })
 
         // Redirect to User List
         this.props.history.push('/timesheet-list')
     }
+
+	newday(){
+	var dt = new Date();
+    document.getElementById("datetime").innerHTML = dt.toLocaleDateString();	
+	
+   }
 
     render() {
         return (<div className="form-wrapper">
@@ -67,7 +81,7 @@ export default class CreateTimeSheet extends Component {
 				<div class="col-lg-2">
 					 <div class="bs-component">
 						<Form.Group controlId="Monday">
-                    	<Form.Label>Monday</Form.Label>
+                    	<Form.Label>Monday</Form.Label><p>Date/Time: <span id="datetime" value ={this.newday}></span></p>
                     	<Form.Control placeholder= "vacation" type="figure" value={this.state.timesheet_vacation} onChange={this.onChangeTimeSheetVacation} />
 						<Form.Control placeholder= "sickness" type="figure" value={this.state.timesheet_sick_day} onChange={this.onChangeTimeSheetSickDay} />
 						<Form.Control placeholder= "project work" type="figure" value={this.state.timesheet_project_work} onChange={this.onChangeTimeSheetProjectWork} />
