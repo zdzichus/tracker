@@ -8,10 +8,12 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
+import CreateProject from "./components/create-project.component";
 import CreateUser from "./components/create-user.component";
 import EditUser from "./components/edit-user.component";
+import EditProject from "./components/edit-project.component";
 import UserList from "./components/user-list.component";
+import ProjectList from "./components/project-list.component";
 
 function App() {
     return (<Router>
@@ -34,12 +36,25 @@ function App() {
                                 </Link>
                             </Nav>
 
-
+                             
                             <Nav>
                                 <Link to={"/user-list"} className="nav-link">
                                     Users List
                                 </Link>
                             </Nav>
+                            <Nav>
+                                <Link to={"/project-list"} className="nav-link">
+                                    Project List
+                                </Link>
+                            </Nav>
+
+
+                            <Nav>
+                                <Link to={"/create-project"} className="nav-link">
+                                    Create Project
+                                </Link>
+                            </Nav>
+
                         </Nav>
 
                     </Container>
@@ -54,7 +69,10 @@ function App() {
                                 <Route exact path='/' component={CreateUser} />
                                 <Route path="/create-user" component={CreateUser} />
                                 <Route path="/edit-user/:id" component={EditUser} />
+                                 <Route path="/edit-project/:id" component={EditProject} />
                                 <Route path="/user-list" component={UserList} />
+                                <Route path="/project-list" component={ProjectList} />
+                                 <Route path="/create-project" component={CreateProject} />
                             </Switch>
                         </div>
                     </Col>

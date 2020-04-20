@@ -1,33 +1,34 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
-import UserTableRow from './UserTableRow';
+import ProjectTableRow from './ProjectTableRow';
 
 
-export default class UserList extends Component {
+export default class ProjectList extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            Users: []
+            Projects: []
         };
     }
 
     componentDidMount() {
-        axios.get('http://192.168.0.46:4000/users/')
+        axios.get('http://192.168.0.46:4000/projects/')
             .then(res => {
                 this.setState({
-                    Users: res.data
+                    Projects: res.data
                 });
             })
             .catch((error) => {
                 console.log(error);
             })
+            
     }
 
     DataTable() {
-        return this.state.Users.map((res, i) => {
-            return <UserTableRow obj={res} key={i} />;
+        return this.state.Projects.map((res, i) => {
+            return <ProjectTableRow obj={res} key={i} />;
         });
     }
 
@@ -37,13 +38,11 @@ export default class UserList extends Component {
             <Table striped bordered hover>
                 <thead>
                 <tr>
-                    <th>Email</th>
-                    <th>Password</th>
-                    <th>Name</th>
-                    <th>Surnam</th>
-                    <th>Application Role</th>
-                    <th>Role</th>
-                    <th>Action</th>
+                    <th>Project Name</th>
+                    <th>Duration</th>
+                    <th>Project Start</th>
+                    <th>Project Finish</th>
+                 
                 </tr>
                 </thead>
                 <tbody>

@@ -23,6 +23,7 @@ export default class UserList extends Component {
             .catch((error) => {
                 console.log(error);
             })
+            
     }
 
     DataTable() {

@@ -94,6 +94,8 @@ export default class CreateUser extends Component {
 
         // Redirect to User List
         this.props.history.push('/user-list')
+        window.location.reload()
+       
     }
 
     render() {
