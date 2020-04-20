@@ -71,7 +71,7 @@ export default class CreateProject extends Component {
 
         // Redirect to Project List
         this.props.history.push('/project-list')
-        window.location.reload()
+        //window.location.reload()
        
     }
 

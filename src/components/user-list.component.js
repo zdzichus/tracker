@@ -17,20 +17,23 @@ export default class UserList extends Component {
         axios.get('http://192.168.0.46:4000/users/')
             .then(res => {
                 this.setState({
+                    
                     Users: res.data
-                });
+                    
+                }); 
             })
             .catch((error) => {
                 console.log(error);
             })
-            
-    }
+      }
 
     DataTable() {
+      
         return this.state.Users.map((res, i) => {
             return <UserTableRow obj={res} key={i} />;
         });
-    }
+        
+    window.location.reload() }
 
 
     render() {
