@@ -13,7 +13,7 @@ export default class UserTableRow extends Component {
 
 
     deleteUser() {
-        if (window.confirm('Do you want to delete this user permanently?')) {
+        if (window.confirm('Do you realy want to delete this user permanently?')) {
             axios.delete('http://192.168.0.46:4000/users/delete-user/' + this.props.obj._id)
 
             .then((res) => {
