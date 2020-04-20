@@ -156,7 +156,7 @@ export default class CreateUser extends Component {
                     </div>
                 </div>
 
-                <Button variant="danger" size="lg" block="block" type="submit">
+                 <Button variant="danger" size="lg" block="block" type="submit">
                     Create User
                 </Button>
             </Form>
