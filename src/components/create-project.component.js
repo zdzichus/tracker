@@ -69,7 +69,7 @@ export default class CreateProject extends Component {
 
         this.setState({ project_name: '', duration: '', start_day: '',finish_day: '' })
 
-        // Redirect to User List
+        // Redirect to Project List
         this.props.history.push('/project-list')
         window.location.reload()
        
