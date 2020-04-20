@@ -6,15 +6,12 @@ import Col from "react-bootstrap/Col";
 import "jquery/dist/jquery.slim.js";
 import "bootstrap/dist/js/bootstrap.min.js";
 import "popper.js/dist/umd/popper.min.js";
-
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import CreateUser from "./components/create-user.component";
-import CreateTimeSheet from "./components/create-timesheet.component";
-import EditTimeSheet from "./components/edit-timesheet.component";
-import TimeSheetList from "./components/timesheet-list.component";
-import EditUser from "./components/edit-user.component";
-import UserList from "./components/user-list.component";
+import CreateUser from "./user_components/create-user.component";
+import EditUser from "./user_components/edit-user.component";
+import UserList from "./user_components/user-list.component";
+import CreateTimeSheet from "./timesheet_components/create-timesheet.component";
 
 
 
@@ -31,7 +28,7 @@ function App() {
                                 <li class="nav-item active"><a class="nav-link" href="/user-list">Dashboard<span class="sr-only">(current)</span></a></li>
                                 <li class="nav-item"><a class="nav-link" href="/user-list">User List</a></li>
                                 <li class="nav-item"><a class="nav-link" href="/create-user">Create User</a></li>
-                                <li class="nav-item"><a class="nav-link" href="/timesheet-list">TimeSheets</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/user-list">TimeSheets</a></li>
                                 <li class="nav-item"><a class="nav-link" href="/create-timesheet">Create TimeSheet</a></li>
                             </ul>
             </div>
@@ -47,8 +44,6 @@ function App() {
                             <Route path="/edit-user/:id" component={EditUser} />
                             <Route path="/user-list" component={UserList} />
                             <Route path="/create-timesheet" component={CreateTimeSheet} />
-                            <Route path="/edit-timesheet" component={EditTimeSheet} />
-                            <Route path="/timesheet-list" component={TimeSheetList} />
                         </Switch>
                     </div>
                 </Col>

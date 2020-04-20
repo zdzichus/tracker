@@ -5,19 +5,23 @@ import UserTableRow from './UserTableRow';
 
 
 export default class UserList extends Component {
+    
 
     constructor(props) {
         super(props)
         this.state = {
             Users: []
+      
         };
     }
 
     componentDidMount() {
+     
         axios.get('http://192.168.0.46:4000/users/')
-            .then(res => {
-                this.setState({
-                    Users: res.data
+            .then(res => {   console.log("czy tu bedzie cos huuh?");
+                this.setState({  
+                    Users: res.data,
+                  
                 });
             })
             .catch((error) => {
@@ -26,7 +30,8 @@ export default class UserList extends Component {
     }
 
     DataTable() {
-        return this.state.Users.map((res, i) => {
+          
+            return this.state.Users.map((res, i) => {
             return <UserTableRow obj={res} key={i} />;
         });
     }
