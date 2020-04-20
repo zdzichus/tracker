@@ -20,20 +20,20 @@ export default class EditUser extends Component {
 
         // State
         this.state = {
-            email: '',
             user_name: '',
             user_surname: '',
             user_password: '',
             user_role: '',
             user_app_role: '',
             user_inactive: false,
-            
+            email: ''
+
         }
     }
 
     componentDidMount() {
         axios.get('http://192.168.0.46:4000/users/edit-user/' + this.props.match.params.id)
-            .then(res => {console.log("przy wczytywaniu editu")
+            .then(res => {
                 this.setState({
                     user_name: res.data.user_name,
                     email: res.data.email,
@@ -42,7 +42,7 @@ export default class EditUser extends Component {
                     user_app_role: res.data.user_app_role,
                     user_role: res.data.user_role,
                     user_inactive: res.data.user_inactive
-                
+
 
                 });
             })
@@ -50,15 +50,10 @@ export default class EditUser extends Component {
                 console.log(error);
             })
     }
-    onChangeUserEmail(e) {
-        this.setState({
-         emial: e.target.value
-         })
-    }
+
     onChangeUserName(e) {
         this.setState({
             user_name: e.target.value
-        
         })
     }
 
@@ -92,7 +87,9 @@ export default class EditUser extends Component {
         })
     }
 
-
+    onChangeUserEmail(e) {
+        this.setState({ email: e.target.value })
+    }
 
 
     onSubmit(e) {
@@ -106,8 +103,8 @@ export default class EditUser extends Component {
             user_app_role: this.state.user_app_role,
             user_role: this.state.user_role,
             user_inactive: this.state.user_inactive
-       
-        
+
+
         };
 
         axios.put('http://192.168.0.46:4000/users/update-user/' + this.props.match.params.id, UserObject)

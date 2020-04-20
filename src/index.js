@@ -1,4 +1,3 @@
-import "bootswatch/dist/yeti/bootstrap.min.css"; 
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";

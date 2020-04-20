@@ -37,10 +37,10 @@ export default class UserList extends Component {
             <Table striped bordered hover>
                 <thead>
                 <tr>
-                    <th>Email</th>
-                    <th>Password</th>
                     <th>Name</th>
-                    <th>Surnam</th>
+                    <th>Email</th>
+                    <th>Surname</th>
+                    <th>Password</th>
                     <th>Application Role</th>
                     <th>Role</th>
                     <th>Action</th>
