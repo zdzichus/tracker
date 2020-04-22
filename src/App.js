@@ -10,6 +10,7 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import CreateProject from "./components/create-project.component";
 import CreateUser from "./components/create-user.component";
+import CreateTimeSheet from "./components/create-timesheet.component";
 import EditUser from "./components/edit-user.component";
 import EditProject from "./components/edit-project.component";
 import UserList from "./components/user-list.component";
@@ -54,6 +55,12 @@ function App() {
                                     Create Project
                                 </Link>
                             </Nav>
+                            <Nav>
+                                <Link to={"/create-timesheet"} className="nav-link">
+                                    Create TimeSheet
+                                </Link>
+                            </Nav>
+
 
                         </Nav>
 
@@ -73,6 +80,7 @@ function App() {
                                 <Route path="/user-list" component={UserList} />
                                 <Route path="/project-list" component={ProjectList} />
                                  <Route path="/create-project" component={CreateProject} />
+                                  <Route path="/create-timesheet" component={CreateTimeSheet} />
                             </Switch>
                         </div>
                     </Col>

@@ -4,6 +4,7 @@ import Table from 'react-bootstrap/Table';
 import ProjectTableRow from './ProjectTableRow';
 
 
+
 export default class ProjectList extends Component {
 
     constructor(props) {
@@ -18,6 +19,7 @@ export default class ProjectList extends Component {
             .then(res => {
                 this.setState({
                     Projects: res.data
+                   
                 });
             })
             .catch((error) => {
@@ -27,8 +29,9 @@ export default class ProjectList extends Component {
     }
 
     DataTable() {
-        return this.state.Projects.map((res, i) => {
+        return this.state.Projects.map((res, i) => { 
             return <ProjectTableRow obj={res} key={i} />;
+            
         });
     }
 
@@ -46,9 +49,12 @@ export default class ProjectList extends Component {
                 </tr>
                 </thead>
                 <tbody>
-                {this.DataTable()}
+                {this.DataTable() }
+                
                 </tbody>
             </Table>
         </div>);
     }
 }
+
+

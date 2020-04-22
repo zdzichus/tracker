@@ -32,7 +32,7 @@ export default class ProjectTableRow extends Component {
                 <td>{this.props.obj.finish_day}</td>
                
 
-                <td>
+                     <td>
                     <Link className="edit-link" to={"/edit-project/" + this.props.obj._id}>
                         Edit
                     </Link>
