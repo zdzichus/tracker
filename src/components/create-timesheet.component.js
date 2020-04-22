@@ -2,6 +2,8 @@ import "bootswatch/dist/yeti/bootstrap.min.css";
 import React, { Component } from "react";
 import axios from 'axios';
 import Select from 'react-select';
+import TimeSheetTableRow from './TimeSheetTableRow';
+import Table from 'react-bootstrap/Table';
 
 export default class CreateTimeSheet extends Component {
     constructor(props) {
@@ -11,43 +13,39 @@ export default class CreateTimeSheet extends Component {
         };
     }
 
-    getProjectsData() {
+   componentDidMount() {
         axios.get('http://192.168.0.46:4000/projects/')
-
             .then(res => {
-                const data = res.data
-                console.log(data)
-                const projects = data.map( u =>
-             
-                    
-                <p>{u.project_name}</p>
-                  
-             
-                 
-                )
                 this.setState({
-                    projects
-                })
-
+                    Projects: res.data
                    
+                });
             })
-
+            .catch((error) => {
+                console.log(error);
+            })
+            
     }
 
-
-    componentDidMount() {
-        this.getProjectsData()
+     DataTable() {
+        return this.state.Projects.map((res, i) => { 
+            return <TimeSheetTableRow obj={res} key={i} />;
+            
+        });
     }
 
 
     render() {
-        return (
-            <div>
-              
-                  {this.state.projects} 
-
-              
-            </div>
-        )
+        return (<div className="table-wrapper">
+            <Table striped bordered hover>
+               
+                <tbody>
+                 <label for="exampleSelect1">Project Names</label>
+                <select class="form-control" id="exampleSelect1">
+                 {this.DataTable() }
+                </select>   
+                </tbody>
+            </Table>
+        </div>);
     }
 }

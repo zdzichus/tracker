@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import UserTableRow from './UserTableRow';
-import ProjectList from "./project-list.component";
+
 
 
 export default class UserList extends Component {
