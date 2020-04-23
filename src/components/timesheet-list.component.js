@@ -1,24 +1,24 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
-import ProjectTableRow from './ProjectTableRow';
+import TimeSheetTableRow from './TimeSheetTableRow';
 
 
 
-export default class ProjectList extends Component {
+export default class TimesheetList extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            Projects: []
+            TimeSheets: []
         };
     }
 
     componentDidMount() {
-        axios.get('http://192.168.0.46:4000/projects/')
+        axios.get('http://192.168.0.46:4000/timesheets/')
             .then(res => {
                 this.setState({
-                    Projects: res.data
+                    TimeSheets: res.data
                    
                 });
             })
@@ -28,9 +28,9 @@ export default class ProjectList extends Component {
             
     }
 
-    ProjectDataTable() {
-        return this.state.Projects.map((res, i) => { 
-            return <ProjectTableRow obj={res} key={i} />;
+    DataTable() {
+        return this.state.TimeSheets.map((res, i) => { 
+            return <TimeSheetTableRow obj={res} key={i} />;
             
         });
     }
@@ -41,15 +41,17 @@ export default class ProjectList extends Component {
             <Table striped bordered hover>
                 <thead>
                 <tr>
-                    <th>Project Name</th>
-                    <th>Duration</th>
-                    <th>Project Start</th>
-                    <th>Project Finish</th>
+                    <th>Vacation </th>
+                    <th>Sick</th>
+                    <th>working hours</th>
+                    <th>Project Assigned </th>
+                     <th>Date </th>
+                      <th>Action</th>
                  
                 </tr>
                 </thead>
                 <tbody>
-                {this.ProjectDataTable() }
+                {this.DataTable() }
                 
                 </tbody>
             </Table>

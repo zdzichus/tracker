@@ -15,6 +15,7 @@ import EditUser from "./components/edit-user.component";
 import EditProject from "./components/edit-project.component";
 import UserList from "./components/user-list.component";
 import ProjectList from "./components/project-list.component";
+import TimesheetList from "./components/timesheet-list.component";
 
 function App() {
     return (<Router>
@@ -49,7 +50,6 @@ function App() {
                                 </Link>
                             </Nav>
 
-
                             <Nav>
                                 <Link to={"/create-project"} className="nav-link">
                                     Create Project
@@ -60,6 +60,12 @@ function App() {
                                     Create TimeSheet
                                 </Link>
                             </Nav>
+                             <Nav>
+                                <Link to={"/timesheet-list"} className="nav-link">
+                                    TimeSheet List
+                                </Link>
+                            </Nav>
+
 
 
                         </Nav>
@@ -81,6 +87,7 @@ function App() {
                                 <Route path="/project-list" component={ProjectList} />
                                  <Route path="/create-project" component={CreateProject} />
                                   <Route path="/create-timesheet" component={CreateTimeSheet} />
+                                  <Route path="/timesheet-list" component={TimesheetList} /> 
                             </Switch>
                         </div>
                     </Col>
