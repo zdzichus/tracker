@@ -1,14 +1,10 @@
 import "bootswatch/dist/yeti/bootstrap.min.css";
 import React, { Component } from "react";
 import axios from 'axios';
-import Select from 'react-select';
-import Table from 'react-bootstrap/Table';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button';
-import { object } from "prop-types";
 
 export default class CreateTimeSheet extends Component {
-
 
     constructor(props) {
         super(props);

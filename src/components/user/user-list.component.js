@@ -34,10 +34,11 @@ export default class UserList extends Component {
             return <UserTableRow obj={res} key={i} />;
         });
         
-    window.location.reload() }
+    }
 
 
     render() {
+         
         return (<div className="table-wrapper">
             <Table striped bordered hover>
                 <thead>

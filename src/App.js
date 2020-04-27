@@ -8,14 +8,14 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import CreateProject from "./components/create-project.component";
-import CreateUser from "./components/create-user.component";
-import CreateTimeSheet from "./components/create-timesheet.component";
-import EditUser from "./components/edit-user.component";
-import EditProject from "./components/edit-project.component";
-import UserList from "./components/user-list.component";
-import ProjectList from "./components/project-list.component";
-import TimesheetList from "./components/timesheet-list.component";
+import CreateProject from "./components/project/create-project.component";
+import CreateUser from "./components/user/create-user.component";
+import CreateTimeSheet from "./components/timesheet/create-timesheet.component";
+import EditUser from "./components/user/edit-user.component";
+import EditProject from "./components/project/edit-project.component";
+import UserList from "./components/user/user-list.component";
+import ProjectList from "./components/project/project-list.component";
+import TimesheetList from "./components/timesheet/timesheet-list.component";
 
 function App() {
     return (<Router>
