@@ -1,21 +1,27 @@
 import React, { Component } from "react";
-import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import UserTableRow from './UserTableRow';
-
-
+import axios from "../../config/axios";
+import history from "../../config/history";
 
 export default class UserList extends Component {
 
     constructor(props) {
         super(props)
+         this.handleLogoutClick = this.handleLogoutClick.bind(this);
         this.state = {
             Users: []
         };
     }
-
+  handleLogoutClick() {
+     localStorage.removeItem("user")
+     history.replace("/signin")
+     this.props.history.push('/signin')
+     
+      
+  }
     componentDidMount() {
-        axios.get('http://192.168.0.46:4000/users/')
+        axios.get('/users/')
             .then(res => {
                 this.setState({
                     
@@ -36,19 +42,19 @@ export default class UserList extends Component {
         
     }
 
-
     render() {
          
         return (<div className="table-wrapper">
+             <button onClick={() => this.handleLogoutClick()}>Logout</button>
+             <h1>User list </h1>
             <Table striped bordered hover>
                 <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Email</th>
                     <th>Surname</th>
-                    <th>Password</th>
+                    <th>Email</th>                               
+                    <th>Company Role</th>
                     <th>Application Role</th>
-                    <th>Role</th>
                     <th>Action</th>
                 </tr>
                 </thead>

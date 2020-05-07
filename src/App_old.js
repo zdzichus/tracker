@@ -1,15 +1,3 @@
-
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-
-
-import axios from "axios";
-import Login from "./components/login/login.component";
-import Register from "./components/login/register.component";
-import Home from "./components/login/home.component";
-import Dashboard from "./components/login/dashboard.component";
-import history from "./config/history";
-
-
 import React from "react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -28,7 +16,7 @@ import EditProject from "./components/project/edit-project.component";
 import UserList from "./components/user/user-list.component";
 import ProjectList from "./components/project/project-list.component";
 import TimesheetList from "./components/timesheet/timesheet-list.component";
-
+import Login from "./components/login/login.component";
 
 function App() {
     return (<Router>
@@ -92,7 +80,7 @@ function App() {
                     <Col md={12}>
                         <div className="wrapper">
                             <Switch>
-                                <Route exact path='/' component={Login} />
+                                <Route exact path='/' component={CreateUser} />
                                 <Route path="/create-user" component={CreateUser} />
                                 <Route path="/edit-user/:id" component={EditUser} />
                                  <Route path="/edit-project/:id" component={EditProject} />
@@ -101,9 +89,7 @@ function App() {
                                  <Route path="/create-project" component={CreateProject} />
                                   <Route path="/create-timesheet" component={CreateTimeSheet} />
                                   <Route path="/timesheet-list" component={TimesheetList} /> 
-                                  <Route exact path='/signin' component={Login} />
-                                    <Route exact path='/register-user' component={Register} />
-
+                                  <Route exact path='/login' component={Login} />
                             </Switch>
                         </div>
                     </Col>

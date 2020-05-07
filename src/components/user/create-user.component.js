@@ -13,7 +13,7 @@ export default class CreateUser extends Component {
         this.onChangeUserSurname = this.onChangeUserSurname.bind(this);
         this.onChangeUserPassword = this.onChangeUserPassword.bind(this);
         this.onChangeUserRole = this.onChangeUserRole.bind(this);
-        this.onChangeUserAppRole = this.onChangeUserAppRole.bind(this);
+        this.onChangeUserComRole = this.onChangeUserComRole.bind(this);
         this.onChangeUserInactive = this.onChangeUserInactive.bind(this);
         this.onChangeUserEmail = this.onChangeUserEmail.bind(this);
 
@@ -25,7 +25,7 @@ export default class CreateUser extends Component {
             user_surname: '',
             user_password: '',
             user_role: '',
-            user_app_role: '',
+            user_com_role: '',
             user_inactive: false,
             email: ''
 
@@ -57,9 +57,9 @@ export default class CreateUser extends Component {
         })
     }
 
-    onChangeUserAppRole(e) {
+    onChangeUserComRole(e) {
         this.setState({
-            user_app_role: e.target.value
+            user_com_role: e.target.value
         })
     }
 
@@ -82,15 +82,16 @@ export default class CreateUser extends Component {
             user_surname: this.state.user_surname,
             user_password: this.state.user_password,
             user_role: this.state.user_role,
-            user_app_role :this.state.user_app_role,
+            user_com_role :this.state.user_com_role,
             user_inactive :this.state.user_inactive,
             email: this.state.email
 
         };
+        
         axios.post('http://192.168.0.46:4000/users/create-user', UserObject)
             .then(res => console.log(res.data));
 
-        this.setState({ user_name: '', email: '', user_surname: '',user_password: '', user_role: '', user_app_role: '', user_inactive: '' })
+        this.setState({ user_name: '', email: '', user_surname: '',user_password: '', user_role: '', user_com_role: '', user_inactive: '' })
 
         // Redirect to User List
         this.props.history.push('/user-list')
@@ -105,28 +106,30 @@ export default class CreateUser extends Component {
                     <Form.Label>Name</Form.Label>
                     <Form.Control type="text" value={this.state.user_name} onChange={this.onChangeUserName} />
                 </Form.Group>
-
-                <Form.Group controlId="Email">
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control type="email" value={this.state.email} onChange={this.onChangeUserEmail} />
-                </Form.Group>
                 <Form.Group controlId="Surname">
                     <Form.Label>Surname</Form.Label>
                     <Form.Control type="text" value={this.state.user_surname} onChange={this.onChangeUserSurname} />
                 </Form.Group>
+                <Form.Group controlId="Email">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control type="email" value={this.state.email} onChange={this.onChangeUserEmail} />
+                </Form.Group>
+               
                 <Form.Group controlId="Password">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="pass" value={this.state.user_password} onChange={this.onChangeUserPassword} />
+                    <Form.Control type="password" value={this.state.user_password} onChange={this.onChangeUserPassword} />
                 </Form.Group>
-                <Form.Group controlId="AppRole">
-                    <Form.Label>User Application Role</Form.Label>
-                    <Form.Control type="text" value={this.state.user_app_role} onChange={this.onChangeUserAppRole} />
+                <Form.Group controlId="ComRole">
+                    <Form.Label>Company Role</Form.Label>
+                    <Form.Control type="text" value={this.state.user_com_role} onChange={this.onChangeUserComRole} />
                 </Form.Group>
+                 <Form.Label>Application Role</Form.Label>
                 <div className="form-group">
+                   
                     <div className="form-check form-check-inline">
                         <input  className="form-check-input"
                                 type="radio"
-                                name="userApplicationRole"
+                                name="userAppRole"
                                 id="User"
                                 value="User"
                                 checked={this.state.user_role==='User'}
