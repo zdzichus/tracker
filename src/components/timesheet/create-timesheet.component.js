@@ -114,14 +114,15 @@ export default class CreateTimeSheet extends Component {
                         </div>
                     </div>
                     <div class="bs-component">
-                        <Form.Group >
-                            <Form.Label>Assign Project</Form.Label>
-                            <Form.Control as="Select" onChange={this.onChangeProjectName} >
+
+                        <div class="form-group">
+                         <label for="exampleSelect1">Assign Project</label>
+                        <select class="form-control" id="exampleSelect1" onChange={this.onChangeProjectName}>
                                 {this.state.Projects.map((proj, i) =>
-                                    <option> {proj.project_name}</option>
-                                )}
-                            </Form.Control>
-                        </Form.Group>
+                                    <option> {proj.project_name}</option>   )}
+                        </select>
+                        </div>
+  
                     </div>
                     <Form.Group controlId="StartDay">
                         <Form.Label>Date</Form.Label>

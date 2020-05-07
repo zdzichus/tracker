@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import UserTableRow from './UserTableRow';
-
+import axios from "../../config/axios";
 
 
 export default class UserList extends Component {
@@ -15,7 +14,7 @@ export default class UserList extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://192.168.0.46:4000/users/')
+        axios.get('/users/')
             .then(res => {
                 this.setState({
                     
@@ -40,15 +39,18 @@ export default class UserList extends Component {
     render() {
          
         return (<div className="table-wrapper">
+             <h1>User list </h1>
+        <h1>Status: {this.props.loggedInStatus} </h1>
+        <h2>Logged user:{this.props.user_name} </h2>
             <Table striped bordered hover>
                 <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Email</th>
                     <th>Surname</th>
-                    <th>Password</th>
+                    <th>Email</th>                
+                 
+                    <th>Company Role</th>
                     <th>Application Role</th>
-                    <th>Role</th>
                     <th>Action</th>
                 </tr>
                 </thead>

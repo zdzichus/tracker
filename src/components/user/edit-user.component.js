@@ -12,7 +12,7 @@ export default class EditUser extends Component {
         this.onChangeUserSurname = this.onChangeUserSurname.bind(this);
         this.onChangeUserPassword = this.onChangeUserPassword.bind(this);
         this.onChangeUserRole = this.onChangeUserRole.bind(this);
-        this.onChangeUserAppRole = this.onChangeUserAppRole.bind(this);
+        this.onChangeUserComRole = this.onChangeUserComRole.bind(this);
         this.onChangeUserInactive = this.onChangeUserInactive.bind(this);
         this.onChangeUserEmail = this.onChangeUserEmail.bind(this);
 
@@ -24,7 +24,7 @@ export default class EditUser extends Component {
             user_surname: '',
             user_password: '',
             user_role: '',
-            user_app_role: '',
+            user_com_role: '',
             user_inactive: false,
             email: ''
 
@@ -39,7 +39,7 @@ export default class EditUser extends Component {
                     email: res.data.email,
                     user_surname: res.data.user_surname,
                     user_password: res.data.user_password,
-                    user_app_role: res.data.user_app_role,
+                    user_com_role: res.data.user_com_role,
                     user_role: res.data.user_role,
                     user_inactive: res.data.user_inactive
 
@@ -76,9 +76,9 @@ export default class EditUser extends Component {
         })
     }
 
-    onChangeUserAppRole(e) {
+    onChangeUserComRole(e) {
         this.setState({
-            user_app_role: e.target.value
+            user_com_role: e.target.value
         })
     }
     onChangeUserInactive(e) {
@@ -100,7 +100,7 @@ export default class EditUser extends Component {
             email: this.state.email,
             user_surname: this.state.user_surname,
             user_password: this.state.user_password,
-            user_app_role: this.state.user_app_role,
+            user_com_role: this.state.user_com_role,
             user_role: this.state.user_role,
             user_inactive: this.state.user_inactive
 
@@ -127,23 +127,21 @@ export default class EditUser extends Component {
                     <Form.Label>Name</Form.Label>
                     <Form.Control type="text" value={this.state.user_name} onChange={this.onChangeUserName} />
                 </Form.Group>
-
+                   <Form.Group controlId="Surname">
+                    <Form.Label>Surname</Form.Label>
+                    <Form.Control type="text" value={this.state.user_surname} onChange={this.onChangeUserSurname} />
+                </Form.Group>
                 <Form.Group controlId="Email">
                     <Form.Label>Email</Form.Label>
                     <Form.Control type="email" value={this.state.email} onChange={this.onChangeUserEmail} />
                 </Form.Group>
-                <Form.Group controlId="Surname">
-                    <Form.Label>Surname</Form.Label>
-                    <Form.Control type="text" value={this.state.user_surname} onChange={this.onChangeUserSurname} />
+             
+              
+                <Form.Group controlId="ComRole">
+                    <Form.Label>Company Role</Form.Label>
+                    <Form.Control type="text" value={this.state.user_com_role} onChange={this.onChangeUserComRole} />
                 </Form.Group>
-                <Form.Group controlId="Password">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="pass" value={this.state.user_password} onChange={this.onChangeUserPassword} />
-                </Form.Group>
-                <Form.Group controlId="AppRole">
-                    <Form.Label>User Application Role</Form.Label>
-                    <Form.Control type="text" value={this.state.user_app_role} onChange={this.onChangeUserAppRole} />
-                </Form.Group>
+                 <Form.Label>Application Role</Form.Label>
                 <div className="form-group">
                     <div className="form-check form-check-inline">
                         <input  className="form-check-input"
