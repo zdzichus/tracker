@@ -2,11 +2,8 @@ import React, { Component } from "react";
 import Table from 'react-bootstrap/Table';
 import UserTableRow from './UserTableRow';
 import axios from "../../config/axios";
-<<<<<<< HEAD
-import history from "../../config/history";
-=======
 
->>>>>>> refs/remotes/origin/master
+import history from "../../config/history";
 
 export default class UserList extends Component {
 
@@ -49,25 +46,13 @@ export default class UserList extends Component {
     render() {
          
         return (<div className="table-wrapper">
-<<<<<<< HEAD
              <button onClick={() => this.handleLogoutClick()}>Logout</button>
-             <h1>User list </h1>
-=======
-             <h1>User list </h1>
-        <h1>Status: {this.props.loggedInStatus} </h1>
-        <h2>Logged user:{this.props.user_name} </h2>
->>>>>>> refs/remotes/origin/master
             <Table striped bordered hover>
                 <thead>
                 <tr>
                     <th>Name</th>
                     <th>Surname</th>
-<<<<<<< HEAD
-                    <th>Email</th>                               
-=======
                     <th>Email</th>                
-                 
->>>>>>> refs/remotes/origin/master
                     <th>Company Role</th>
                     <th>Application Role</th>
                     <th>Action</th>

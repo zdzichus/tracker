@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import '../../../node_modules/bootswatch/dist/yeti/bootstrap.min.css'; // Added this :boom:
-<<<<<<< HEAD
 import axios from "../../config/axios";
 import history from "../../config/history";
 
@@ -27,33 +26,7 @@ export default class Register extends Component {
      axios.post('/users/register-user', UserObject)
             .then(response => {
                 if (response.data.status === "created") {
-=======
-import axios from "axios";
-
-export default class Register extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            user_name: "",
-            email: "",
-            user_password: "",
-            registartionErrors: ""
-        }
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleChange = this.handleChange.bind(this);
-    }
-
-    handleSubmit(event) {
-        const UserObject = {
-            user_name: this.state.user_name,
-            user_password: this.state.user_password,
-            email: this.state.email
-        }
-     axios.post('http://192.168.0.46:4000/users/register-user', UserObject)
-            .then(response => {
-                if (response.data.status === "created") {
                     this.props.handleSuccessfulAuth(response.data);
->>>>>>> refs/remotes/origin/master
                     console.log(response.data);
                 }
             })
