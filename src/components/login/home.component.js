@@ -4,6 +4,7 @@ import "../../App.css";
 import Register from "./register.component";
 import Login from "./login.component";
 import axios from 'axios';
+<<<<<<< HEAD
 import history from "../../config/history";
 
 export default class Home extends Component {
@@ -18,6 +19,23 @@ export default class Home extends Component {
     this.props.history.push("/dashboard");
   }
 
+=======
+import Dashboard from "./dashboard.component";
+import UserList from "../user/user-list.component";
+import history from "../../config/history";
+
+export default class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
+    this.handleLogoutClick = this.handleLogoutClick.bind(this);
+  }
+
+  handleSuccessfulAuth(data) {
+    this.props.handleLogin(data);  
+    this.props.history.push("/dashboard");
+  }
+>>>>>>> refs/remotes/origin/master
 //doesnot work the endpoint for logout user session
   handleLogoutClick() {
      localStorage.removeItem("user")

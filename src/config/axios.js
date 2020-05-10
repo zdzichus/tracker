@@ -25,7 +25,11 @@ axiosInstance.interceptors.response.use(
   },
   error => {
     if (401 === error.response.status) {
+<<<<<<< HEAD
      localStorage.removeItem("user")
+=======
+      localStorage.removeItem("user")
+>>>>>>> refs/remotes/origin/master
      history.replace("/signin")
     } else {
       return Promise.reject(error)
