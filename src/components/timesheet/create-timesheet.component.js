@@ -1,8 +1,10 @@
 import "bootswatch/dist/yeti/bootstrap.min.css";
 import React, { Component } from "react";
-import axios from 'axios';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button';
+import axios from "../../config/axios";
+import history from "../../config/history";
+
 
 export default class CreateTimeSheet extends Component {
 
@@ -85,19 +87,20 @@ export default class CreateTimeSheet extends Component {
         window.location.reload()
 
     }
+
     componentDidMount() {
-        fetch('http://192.168.0.46:4000/projects/')
-            .then(res => res.json())
-            .then(data => {
+        axios.get('/projects/')
+            .then(res => {
                 this.setState({
-                    Projects: data,
-                    project_name: data[0].project_name
-
+                    Projects: res.data,
+                       project_name: res.data[0].project_name
                 });
-                console.log(data);
             })
+            .catch((error) => {
+                console.log(error);
+            })
+            
     }
-
     render() {
        console.log(this.state.project_name, "project_name");
         return (

@@ -1,21 +1,28 @@
 import React, { Component } from "react";
-import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import ProjectTableRow from './ProjectTableRow';
-
+import axios from "../../config/axios";
+import history from "../../config/history";
 
 
 export default class ProjectList extends Component {
 
     constructor(props) {
         super(props)
+         this.handleLogoutClick = this.handleLogoutClick.bind(this);
         this.state = {
             Projects: []
         };
     }
-
+  handleLogoutClick() {
+     localStorage.removeItem("user")
+     history.replace("/signin")
+     this.props.history.push('/signin')
+     
+      
+  }
     componentDidMount() {
-        axios.get('http://192.168.0.46:4000/projects/')
+        axios.get('/projects/')
             .then(res => {
                 this.setState({
                     Projects: res.data
@@ -38,6 +45,7 @@ export default class ProjectList extends Component {
 
     render() {
         return (<div className="table-wrapper">
+              <button onClick={() => this.handleLogoutClick()}>Logout</button>
             <Table striped bordered hover>
                 <thead>
                 <tr>

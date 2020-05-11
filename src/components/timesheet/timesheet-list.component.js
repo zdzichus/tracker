@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import TimeSheetTableRow from './TimeSheetTableRow';
+import axios from "../../config/axios";
+import history from "../../config/history";
 
 
 
@@ -9,13 +10,21 @@ export default class TimesheetList extends Component {
 
     constructor(props) {
         super(props)
+          this.handleLogoutClick = this.handleLogoutClick.bind(this);
         this.state = {
             TimeSheets: []
         };
     }
 
+  handleLogoutClick() {
+     localStorage.removeItem("user")
+     history.replace("/signin")
+     this.props.history.push('/signin')
+     
+      
+  }
     componentDidMount() {
-        axios.get('http://192.168.0.46:4000/timesheets/')
+        axios.get('/timesheets/')
             .then(res => {
                 this.setState({
                     TimeSheets: res.data
@@ -38,6 +47,7 @@ export default class TimesheetList extends Component {
 
     render() {
         return (<div className="table-wrapper">
+             <button onClick={() => this.handleLogoutClick()}>Logout</button>
             <Table striped bordered hover>
                 <thead>
                 <tr>

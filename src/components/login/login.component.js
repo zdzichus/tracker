@@ -50,10 +50,7 @@ export default class Login extends Component {
       
       <form onSubmit={this.handleSubmit}>
         <br></br>  <br></br>
-        <h1>Login </h1>
-        <h1>Status: {this.props.loggedInStatus} </h1>
-        <h2>Logged user:{this.props.user_name} </h2>
-
+      
         <div class="container">
           <div class="row">
             <div class="col-lg-4"></div>

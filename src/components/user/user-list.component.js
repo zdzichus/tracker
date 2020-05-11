@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Table from 'react-bootstrap/Table';
 import UserTableRow from './UserTableRow';
 import axios from "../../config/axios";
-
 import history from "../../config/history";
 
 export default class UserList extends Component {
