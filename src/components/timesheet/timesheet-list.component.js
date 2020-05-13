@@ -47,6 +47,7 @@ export default class TimesheetList extends Component {
 
     render() {
         return (<div className="table-wrapper">
+             <p> Welcome: {localStorage.getItem( "user_name")}</p>
              <button onClick={() => this.handleLogoutClick()}>Logout</button>
             <Table striped bordered hover>
                 <thead>

@@ -21,15 +21,14 @@ export default class CreateTimeSheet extends Component {
         this.onSubmit = this.onSubmit.bind(this);
 
 
-
         this.state = {
             timesheet_vacation: '',
             timesheet_sick_day: '',
             timesheet_project_work: '',
             project_name: '',
             timesheet_date: '',
-            Projects: [],
-
+            Projects: []
+        
         };
     }
 
@@ -87,13 +86,12 @@ export default class CreateTimeSheet extends Component {
         window.location.reload()
 
     }
-
-    componentDidMount() {
+        componentDidMount() {
         axios.get('/projects/')
             .then(res => {
                 this.setState({
                     Projects: res.data,
-                       project_name: res.data[0].project_name
+                    project_name: res.data[0].project_name
                 });
             })
             .catch((error) => {
@@ -101,8 +99,11 @@ export default class CreateTimeSheet extends Component {
             })
             
     }
+
+
     render() {
        console.log(this.state.project_name, "project_name");
+ 
         return (
             <div className="table-wrapper">
                 <Form onSubmit={this.onSubmit}>

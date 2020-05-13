@@ -26,8 +26,8 @@ export default class Register extends Component {
      axios.post('/users/register-user', UserObject)
             .then(response => {
                 if (response.data.status === "created") {
-                    this.props.handleSuccessfulAuth(response.data);
                     console.log(response.data);
+                     this.props.history.push("/signin");
                 }
             })
             .catch(error => {

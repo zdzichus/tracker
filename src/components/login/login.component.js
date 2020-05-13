@@ -4,6 +4,8 @@ import "../../App.css";
 import '../../../node_modules/bootswatch/dist/yeti/bootstrap.min.css'; // Added this :boom:
 import axios from "../../config/axios"
 import history from "../../config/history";
+import UserList from "../user/user-list.component"
+
 
 export default class Login extends Component {
 
@@ -17,7 +19,10 @@ export default class Login extends Component {
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this); 
+
   }
+   
+
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value
@@ -33,8 +38,10 @@ export default class Login extends Component {
     axios.post('/users/signin', UserObject)
       .then(response => {
         if (response.data.logged_in) {         
-          localStorage.setItem("user", response.data.token);
+          localStorage.setItem("user", response.data.token); 
+          localStorage.setItem("user_name", response.data.msg.user_name)    
           console.log("response from login", response);
+          console.log(response.data.msg.user_name, "username");  
           this.props.history.push("/user-list");
         }
         return response.data;
@@ -46,11 +53,13 @@ export default class Login extends Component {
   }
 
   render() {
+
     return (
-      
+    
+
       <form onSubmit={this.handleSubmit}>
         <br></br>  <br></br>
-      
+       
         <div class="container">
           <div class="row">
             <div class="col-lg-4"></div>
@@ -97,9 +106,10 @@ export default class Login extends Component {
             </div>
             <div class="col-lg-4"></div>
           </div>
-
+     
         </div>
       </form>
     );
   }
 }
+

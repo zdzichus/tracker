@@ -3,48 +3,68 @@ import Table from 'react-bootstrap/Table';
 import UserTableRow from './UserTableRow';
 import axios from "../../config/axios";
 import history from "../../config/history";
+import Login from "../login/login.component";
+import { doesNotReject } from "assert";
+
 
 export default class UserList extends Component {
 
+    
     constructor(props) {
         super(props)
          this.handleLogoutClick = this.handleLogoutClick.bind(this);
+      
         this.state = {
-            Users: []
+            Users: [],
+          
+            
+
         };
     }
+
+
   handleLogoutClick() {
      localStorage.removeItem("user")
      history.replace("/signin")
      this.props.history.push('/signin')
-     
-      
+   
   }
+   
+
     componentDidMount() {
-        axios.get('/users/')
+         
+       axios.get('/users/')
             .then(res => {
-                this.setState({
-                    
-                    Users: res.data
-                    
-                }); 
+                     
+       
+                this.setState({                 
+                    Users: res.data,
+                  
+                });  
+                
+                  console.log();
+                
             })
             .catch((error) => {
                 console.log(error);
             })
       }
+ 
+
 
     UserDataTable() {
       
-        return this.state.Users.map((res, i) => {
+            return this.state.Users.map((res, i) => {
             return <UserTableRow obj={res} key={i} />;
         });
         
     }
+  
 
     render() {
-         
-        return (<div className="table-wrapper">
+ 
+         return (<div className="table-wrapper">
+         <p> Welcome: {localStorage.getItem( "user_name")}</p>
              <button onClick={() => this.handleLogoutClick()}>Logout</button>
             <Table striped bordered hover>
                 <thead>
@@ -60,8 +80,9 @@ export default class UserList extends Component {
                 <tbody>
                 {this.UserDataTable()}
                 </tbody>
+                
             </Table>
-          
+
          
         </div>);
     }
