@@ -10,7 +10,7 @@
     "@types/jquery": "^3.3.35",
     "@types/popper.js": "^1.11.0",
     "@types/react-router-dom": "^5.1.4",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^4.4.1",
     "bootswatch": "^4.4.1",
